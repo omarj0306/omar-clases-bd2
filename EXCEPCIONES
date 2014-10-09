@@ -4,7 +4,10 @@ ORA-06511 INVALID_CURSOR -- ORA-01001 INVALID_NUMBER -- ORA-01722 NO_DATA_FOUND 
 ORA-00100 PROGRAM_ERROR -- ORA-06501 ROWTYPE_MISMATCH -- ORA-06504 SUBSCRIPT_BEYOND_COUNT -- 
 ORA-06533 SUBSCRIPT_OUTSIDE_LIMIT -- ORA-06532 VALUE_ERROR -- ORA-06502
 
+Raise_application_error(,'') es un procedimiento almacenado que se usa 
+mucho dentro de otros procedimientos para personalizar excepciones
 
+---------------------------------------------------------------------------------------------------
 
 
 CREATE TABLE PRUEBA_EXCEPCIONES (ID_PRUEBA INTEGER, NOMBRE VARCHAR2(120));
@@ -14,3 +17,5 @@ INSERT INTO PRUEBA_EXCEPCIONES VALUES (I,'JUAN');
 END LOOP;
 END;
 /
+
+SELECT * FROM PRUEBA_EXCEPCIONES 

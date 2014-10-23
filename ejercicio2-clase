@@ -1,6 +1,11 @@
+------------------------------------------------------------------------------------------------------------------------------
+1
+-----------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE DEVELOPER (ID_DEVELOPER INTEGER, NOMBRE VARCHAR2(120), EMAIL VARCHAR2(120),CONSTRAINT PK_ID_DEVELOPER PRIMARY KEY (ID_DEVELOPER));
 CREATE TABLE TAREA(ID_TAREA INTEGER, ID_DEVELOPER INTEGER, DECRIPCION VARCHAR2 (500),COMPLETADA CHAR, PORCIENTO_COMPLETADA INTEGER,FECHA DATE,CONSTRAINT PK_ID_TAREA PRIMARY KEY (ID_TAREA),CONSTRAINT FK_ID_DEVELOPER FOREIGN KEY (ID_DEVELOPER)REFERENCES DEVELOPER(ID_DEVELOPER));
-
+------------------------------------------------------------------------------------------------------------------------------
+2
+------------------------------------------------------------------------------------------------------------------------------
 CREATE SEQUENCE SECUENCIA_DEVELOPER
   START WITH 1
   INCREMENT BY 1
@@ -10,21 +15,27 @@ CREATE SEQUENCE SECUENCIA_DEVELOPER
   START WITH 1
   INCREMENT BY 1
   NOMAXVALUE;
-  
+----------------------------------------------------------------------------------------------------------------------------------
+3
+----------------------------------------------------------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE GUARDAR_DEVELOPER (MY_ID_DEVELOPER OUT INTEGER, MY_NOMBRE IN VARCHAR2,MY_EMAIL  IN VARCHAR2)
   AS 
   BEGIN
   SELECT SECUENCIA_DEVELOPER.NEXTVAL INTO MY_ID_DEVELOPER FROM DUAL;
   INSERT INTO DEVELOPER VALUES (MY_ID_DEVELOPER, MY_NOMBRE,MY_EMAIL);
   END;
-
+----------------------------------------------------------------------------------------------------------------------------
+4
+----------------------------------------------------------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE GUARDAR_TAREA(MY_ID_TAREA OUT INTEGER, MY_ID_DEVELOPER IN INTEGER,MY_DESCRIPCION IN VARCHAR2, MY_COMPLETADA IN CHAR, MY_PORCIENTO_COMPLETADA INTEGER,MY_FECHA DATE )
   AS
   BEGIN
   SELECT SECUENCIA_TAREA.NEXTVAL INTO MY_ID_TAREA FROM DUAL;
   INSERT INTO TAREA VALUES (MY_ID_TAREA,MY_ID_DEVELOPER, MY_DESCRIPCION,MY_COMPLETADA, MY_PORCIENTO_COMPLETADA,MY_FECHA);
   END;
-
+-----------------------------------------------------------------------------------------------------------------------------
+5
+----------------------------------------------------------------------------------------------------------------------------
 DECLARE 
 VALOR INTEGER;
 BEGIN
@@ -50,16 +61,18 @@ DBMS_OUTPUT.PUT_LINE('REGISTRO GUARDADO CON ID:' ||VALOR1);
 END;
 	
 SELECT * FROM TAREA;
-
+--------------------------------------------------------------------------------------------------------------
+7
+---------------------------------------------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE ACTUALIZAR_TAREA(ID_TAREA IN INTEGER,ID_DEVELOPER IN INTEGER,)
 AS
 BEGIN
 SELECT SECUENCIA_TAREA.NEXTVAL INTO MY_ID_TAREA FROM DUAL;
 INSERT INTO TAREA VALUES (MY_ID_TAREA,MY_ID_DEVELOPER,MY_DESCRIPCION,MY_COMPLETADA,MY_PORCIENTO_COMPLETADA,MY_FECHA);
 END;
-
-
-
+--------------------------------------------------------------------------------------------------------------------------
+8
+-------------------------------------------------------------------------------------------------------------------------
 
 CREATE OR REPLACE PROCEDURE ACTUALIZAR_TAREA(MY_ID_TAREA IN INTEGER, MY_ID_DEVELOPER IN INTEGER, MY_PORCIENTO_COMPLETADA IN INTEGER)
 AS

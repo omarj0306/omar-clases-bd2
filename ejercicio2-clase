@@ -64,12 +64,14 @@ SELECT * FROM TAREA;
 --------------------------------------------------------------------------------------------------------------
 7
 ---------------------------------------------------------------------------------------------------------------
-CREATE OR REPLACE PROCEDURE ACTUALIZAR_TAREA(ID_TAREA IN INTEGER,ID_DEVELOPER IN INTEGER,)
-AS
-BEGIN
-SELECT SECUENCIA_TAREA.NEXTVAL INTO MY_ID_TAREA FROM DUAL;
-INSERT INTO TAREA VALUES (MY_ID_TAREA,MY_ID_DEVELOPER,MY_DESCRIPCION,MY_COMPLETADA,MY_PORCIENTO_COMPLETADA,MY_FECHA);
-END;
+CREATE OR REPLACE PROCEDURE ACTUALIZAR_TAREA(MY_ID_TAREA IN INTEGER,ID_DEVELOPER IN INTEGER, PORCIENTO_COMPLETADA IN VARCHAR2)  
+  AS   
+  BEGIN  
+  UPDATE ;  
+  INSERT INTO TAREA VALUES(MY_ID_TAREA, ID_DEVELOPER, MY_DESCRIPCION ,'S',SYSDATE);  
+  END;  
+
+
 --------------------------------------------------------------------------------------------------------------------------
 8
 -------------------------------------------------------------------------------------------------------------------------

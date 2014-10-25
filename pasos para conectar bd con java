@@ -1,0 +1,7 @@
+1. corgar fisicamente el driver (jdbc6.jar) como biblioteca
+2. crear una clase conexion que contengan lo siguiente
+  cargado del drvers con codigo
+   Class.forName("oracle.jdbc.OracleDriver");
+
+3.Escribir la url de conexion
+String url="jdbc:oracle:thin:@localhost:1521:XE";

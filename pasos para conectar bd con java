@@ -4,4 +4,7 @@
    Class.forName("oracle.jdbc.OracleDriver");
 
 3.Escribir la url de conexion
-String url="jdbc:oracle:thin:@localhost:1521:XE";
+  String url="jdbc:oracle:thin:@localhost:1521:XE";
+  
+4. usar la clase driver manager del paquete java.sql para convertirse
+  Connection con=DriverManager.getConnection(url,"system","system");

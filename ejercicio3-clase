@@ -1,3 +1,5 @@
+//SE IMPLEMENTA EL PROCEDIMIENTO LLAMADO EFICIENCIA DEVELOPER CON ARGUMENTO DEASARROLLADOR Y TAREAS NO COMPLETADAS
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CREATE OR REPLACE PROCEDURE EFICIENCIA_DEVELOPER (MY_ID_DEVELOPER IN INTEGER, TAREAS OUT VARCHAR2)
 AS
@@ -15,7 +17,8 @@ BEGIN
 EFICIENCIA_DEVELOPER(1, TEXTO);
 DBMS_OUTPUT.PUT_LINE(TEXTO);
 END;
-
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 CREATE OR REPLACE PROCEDURE ANALZIAR_TAREA_INCOMPLETA (MY_ID_DEVELOPER IN INTEGER, MY_ID_TAREA IN INTEGER, MY_PORCENTAGE OUT INTEGER, MY_FECHA OUT DATE)
 AS
 BEGIN
@@ -30,7 +33,7 @@ BEGIN
 ANALZIAR_TAREA_INCOMPLETA(1, 1, PORCENTAGE, FECHA);
 DBMS_OUTPUT.PUT_LINE('PORCENTAGE: ' || PORCENTAGE || ' FECHA: ' || FECHA);
 END;
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 CREATE OR REPLACE PROCEDURE EFICIENCIA_EMPRESA(PORCENTAGE OUT FLOAT)
 AS
 TOTAL_TAREAS INTEGER;
